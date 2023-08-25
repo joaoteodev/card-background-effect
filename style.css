@@ -1,0 +1,68 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background: #09090b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 30px;
+  flex-direction: column;
+}
+
+h1 {
+  margin-bottom: 50px;
+  background: azure;
+  font-size: 32px;
+  text-transform: uppercase;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  padding: 5px 20px;
+}
+
+.cards {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 50px;
+}
+
+.card {
+  width: 100%;
+  height: 600px;
+  max-width: 600px;
+  background: #262626e6;
+  background: linear-gradient(to bottom left, #0a0a0ae6, #252525e6);
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+  filter: blur(0.3);
+}
+
+.card::after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  transition-property: opacity;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.3s;
+  animation-duration: 0.3s;
+  opacity: 0;
+}
+
+.card:hover::after {
+  background: radial-gradient(
+    1000px circle at var(--x) var(--y),
+    #274cb7 0,
+    #182c65 25%,
+    hsla(0, 0%, 100%, 0) 50%,
+    transparent 80%
+  );
+  opacity: 1;
+}
